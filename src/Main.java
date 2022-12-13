@@ -15,9 +15,21 @@ class Main {
     }
 
     public static void main(String[] args) {
-        Scanner slog = new Scanner(System.in);
-        System.out.println("Введите количество слагаемых ");
-        int kol = slog.nextInt();
+        Scanner slag = new Scanner(System.in);
+        int kol;
+        while(true){
+            System.out.println("Введите количество слагаемых ");
+            String str = slag.nextLine();
+
+            try {
+                 kol = Integer.parseInt(str);
+                 break;
+
+            } catch(NumberFormatException e){
+                System.out.println("Вы ввели не верное число ");
+            }
+        }
+
         List<Double> list = new ArrayList<>();
 
         for (int i = 0; i < kol; i++) {
@@ -38,6 +50,6 @@ class Main {
                 }
             }
         }
-        System.out.println("Сумма чисел равна: "+sumList(list));
+        System.out.println("Сумма чисел равна: "+String.format("%.1f", sumList(list)));
     }
 }
